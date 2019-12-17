@@ -1,0 +1,73 @@
+<div>
+
+    <form class="mb-5 form-inline">
+        <mat-form-field style="width: 100%;"> 
+          <input matInput name="searchInput" #searchInput="ngModel" [(ngModel)]="searchText" style="width: 100%;">
+          <mat-placeholder style="color:white">Search</mat-placeholder>
+        </mat-form-field>
+    </form>
+
+    <mat-accordion class="example-headers-align">
+      <mat-expansion-panel>
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            First Name
+          </mat-panel-title>
+          <mat-panel-title>
+            Last Name
+          </mat-panel-title>
+        </mat-expansion-panel-header>
+      </mat-expansion-panel>
+
+      <mat-expansion-panel *ngFor="let people of peopleArray"  hideToggle>
+        <mat-expansion-panel-header *ngIf="filterCondition(people)">
+          <mat-panel-title>
+            {{people.firstName}}
+          </mat-panel-title>
+          <mat-panel-title>
+            {{people.lastName}}
+          </mat-panel-title>
+        </mat-expansion-panel-header>
+
+        <mat-panel-title>
+            mobile:
+        </mat-panel-title>
+        <mat-panel-description>
+          {{people.mobile}}
+        </mat-panel-description>
+
+        <mat-panel-title>
+          Email:
+        </mat-panel-title>
+        <mat-panel-description>
+          {{people.email}}
+        </mat-panel-description>
+        <mat-panel-title>
+          Address:
+        </mat-panel-title>
+        <mat-panel-description>
+          {{people.address}}
+        </mat-panel-description>
+        <mat-panel-title>
+          Note:
+        </mat-panel-title>
+        <mat-panel-description>
+          {{people.note}}
+        </mat-panel-description>
+          
+        <mat-action-row>
+          <button mat-button color="warn" (click)="onDelete(people.$key)">DELETE</button>
+          <a class="nav-link" href="#search">
+          <button mat-button color="primary" (click)="peopleService.populateForm(people)" >EDIT</button>
+        </a>
+        </mat-action-row>
+
+
+      </mat-expansion-panel>
+      
+    </mat-accordion>
+
+</div>
+
+
+

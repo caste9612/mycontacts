@@ -1,0 +1,26 @@
+.example-headers-align .mat-expansion-panel-header-title,
+.example-headers-align .mat-expansion-panel-header-description {
+  flex-basis: 0;
+}
+
+.example-headers-align .mat-expansion-panel-header-description {
+  justify-content: space-between;
+  align-items: center;
+}
+
+mat-form-field {
+  margin-right: 12px;
+}
+
+
+@media (min-width: 780px) {
+   .search-close-x {
+       margin-left: 10px;
+   }
+}
+
+@media (max-width: 780px) {
+   .search-close-x {
+       margin: 0px;
+   }
+}
