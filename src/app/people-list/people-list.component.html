@@ -1,20 +1,20 @@
 <div>
 
     <form class="mb-5 form-inline">
-        <mat-form-field style="width: 100%;"> 
+        <mat-form-field style="width: 100%;">
           <input matInput name="searchInput" #searchInput="ngModel" [(ngModel)]="searchText" style="width: 100%;">
           <mat-placeholder style="color:white">Search</mat-placeholder>
         </mat-form-field>
     </form>
 
     <mat-accordion class="example-headers-align">
-      <mat-expansion-panel>
+      <mat-expansion-panel [disabled]="true">
         <mat-expansion-panel-header>
-          <mat-panel-title>
-            First Name
+          <mat-panel-title (click)='orderByFirstName()' style="color: black;">
+            FIRST NAME
           </mat-panel-title>
-          <mat-panel-title>
-            Last Name
+          <mat-panel-title (click)='orderByLastName()' style="color: black;">
+            LAST NAME
           </mat-panel-title>
         </mat-expansion-panel-header>
       </mat-expansion-panel>
@@ -54,7 +54,7 @@
         <mat-panel-description>
           {{people.note}}
         </mat-panel-description>
-          
+
         <mat-action-row>
           <button mat-button color="warn" (click)="onDelete(people.$key)">DELETE</button>
           <a class="nav-link" href="#search">
@@ -64,7 +64,7 @@
 
 
       </mat-expansion-panel>
-      
+
     </mat-accordion>
 
 </div>

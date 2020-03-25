@@ -19,7 +19,7 @@ export class PeopleListComponent implements OnInit {
   searchText: string = '';
 
   ngOnInit() {
-     
+
     this.peopleService.getPeople().subscribe(
       list => {
         this.peopleArray = list.map(item => {
@@ -39,11 +39,29 @@ export class PeopleListComponent implements OnInit {
         duration: 5 * 1000,
       });
     }
-    
+
   }
 
   filterCondition(people) {
     return people.firstName.toLowerCase().indexOf(this.searchText.toLowerCase()) !== -1;
+  }
+
+  orderByFirstName(){
+    console.log('Ordino per nome');
+    this.peopleArray.sort(function(a, b) {
+      var textA = a.firstName.toUpperCase();
+      var textB = b.firstName.toUpperCase();
+      return (textA < textB) ? -1 : (textA > textB) ? 1 : 0;
+  });
+  }
+
+  orderByLastName(){
+    console.log('Ordino per cognome');
+    this.peopleArray.sort(function(a, b) {
+      var textA = a.lastName.toUpperCase();
+      var textB = b.lastName.toUpperCase();
+      return (textA < textB) ? -1 : (textA > textB) ? 1 : 0;
+  });
   }
 
 }

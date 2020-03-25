@@ -1,40 +1,34 @@
 
-    <mat-card class="example-card">
+    <mat-card class="example-card" style="margin: 4px;">
 
       <mat-card-header>
         <div mat-card-avatar class="example-header-image"></div>
         <mat-card-title>{{peopleService.selectedFirstName}} {{peopleService.selectedLastName}}</mat-card-title>
         <mat-card-subtitle>{{peopleService.selectedMobile}}</mat-card-subtitle>
       </mat-card-header>
-    <mat-card-content>
-    
+    <mat-card-content style="display: flex;flex-direction: column;justify-content: space-between;">
+
 
       <form class="example-form" [formGroup]="this.peopleService.form">
 
         <div class="form-group">
-        <table  cellspacing="0">
-          <tr>
-            <td>
-                <mat-form-field>
+              <div style="display: flex;flex-direction: row;justify-content: space-between;">
+                <mat-form-field style="margin-right: 2px;width: 45%;">
                     <input matInput formControlName="firstName" class="form-control" [ngClass]="{'is-invalid':submitted && formControls.firstName.errors}">
                     <mat-placeholder >First Name</mat-placeholder>
                     <div class="invalid-feedback" *ngIf="submitted && formControls.firstName.errors" style="color: red;">This field is required</div>
                   </mat-form-field>
-              </td>
-              <td>
-                <div class="form-group">
-                  <mat-form-field>
+                <!--div class="form-group"-->
+                  <mat-form-field style="width: 45%;">
                     <input matInput placeholder="Last name" formControlName="lastName">
                   </mat-form-field>
-                </div>
-              </td>
-            </tr>
-          </table>
+                <!--/div-->
+              </div>
         </div>
 
 
         <div class="form-group">
-          <mat-form-field> 
+          <mat-form-field style="width: 45%;">
             <input matInput formControlName="mobile" class="form-control" [ngClass]="{'is-invalid':submitted && formControls.mobile.errors}">
               <mat-placeholder>
                 Mobile
@@ -47,7 +41,7 @@
         </div>
 
         <div class="form-group">
-        <mat-form-field> 
+          <mat-form-field style="width: 45%;">
             <input matInput formControlName="email" class="form-control" [ngClass]="{'is-invalid':submitted && formControls.email.errors}">
             <mat-placeholder>Email</mat-placeholder>
             <div class="invalid-feedback" *ngIf="submitted && formControls.email.errors" style="color: red;">Invalid Email Address</div>
@@ -55,7 +49,7 @@
         </div>
 
         <div class="form-group">
-          <mat-form-field >
+          <mat-form-field style="width: 45%;">
             <input matInput placeholder="Address" formControlName="address">
           </mat-form-field>
 
@@ -70,7 +64,7 @@
 
     </form>
 
-    <mat-action-row style="display: flex;justify-content: space-between;">
+    <mat-action-row style="display: flex;justify-content: space-between;padding: 10px;">
         <a class="nav-link" href="#home">
             <button mat-button color="primary">BACK</button>
         </a>
