@@ -72,7 +72,7 @@
         /***/ (function (module, __webpack_exports__, __webpack_require__) {
             "use strict";
             __webpack_require__.r(__webpack_exports__);
-            /* harmony default export */ __webpack_exports__["default"] = ("<div>\n\n    <form class=\"mb-5 form-inline\">\n        <mat-form-field style=\"width: 100%;\">\n          <input matInput name=\"searchInput\" #searchInput=\"ngModel\" [(ngModel)]=\"searchText\" style=\"width: 100%;\">\n          <mat-placeholder style=\"color:white\">Search</mat-placeholder>\n        </mat-form-field>\n    </form>\n\n    <mat-accordion class=\"example-headers-align\">\n      <mat-expansion-panel [disabled]=\"true\">\n        <mat-expansion-panel-header>\n          <mat-panel-title (click)='orderByFirstName()' style=\"color: black;\">\n            <button mat-raised-button color=\"primary\">FIRST NAME</button>\n          </mat-panel-title>\n          <mat-panel-title (click)='orderByLastName()' style=\"color: black;\">\n            <button mat-raised-button color=\"primary\">LAST NAME</button>\n          </mat-panel-title>\n        </mat-expansion-panel-header>\n      </mat-expansion-panel>\n\n      <mat-expansion-panel *ngFor=\"let people of peopleArray\"  hideToggle>\n        <mat-expansion-panel-header *ngIf=\"filterCondition(people)\">\n          <mat-panel-title>\n            {{people.firstName}}\n          </mat-panel-title>\n          <mat-panel-title>\n            {{people.lastName}}\n          </mat-panel-title>\n        </mat-expansion-panel-header>\n\n        <mat-panel-title>\n            mobile:\n        </mat-panel-title>\n        <mat-panel-description>\n          {{people.mobile}}\n        </mat-panel-description>\n\n        <mat-panel-title>\n          Email:\n        </mat-panel-title>\n        <mat-panel-description>\n          {{people.email}}\n        </mat-panel-description>\n        <mat-panel-title>\n          Address:\n        </mat-panel-title>\n        <mat-panel-description>\n          {{people.address}}\n        </mat-panel-description>\n        <mat-panel-title>\n          Note:\n        </mat-panel-title>\n        <mat-panel-description>\n          {{people.note}}\n        </mat-panel-description>\n\n        <mat-action-row>\n          <button mat-button color=\"warn\" (click)=\"onDelete(people.$key)\">DELETE</button>\n          <a class=\"nav-link\" href=\"#search\">\n          <button mat-button color=\"primary\" (click)=\"peopleService.populateForm(people)\" >EDIT</button>\n        </a>\n        </mat-action-row>\n\n\n      </mat-expansion-panel>\n\n    </mat-accordion>\n\n</div>\n\n\n\n");
+            /* harmony default export */ __webpack_exports__["default"] = ("<div>\n\n    <form class=\"mb-5 form-inline\">\n        <mat-form-field style=\"width: 100%;\">\n          <input matInput name=\"searchInput\" #searchInput=\"ngModel\" [(ngModel)]=\"searchText\" style=\"width: 100%;\">\n          <mat-placeholder style=\"color:white\">Search</mat-placeholder>\n        </mat-form-field>\n    </form>\n\n    <mat-accordion class=\"example-headers-align\">\n      <mat-expansion-panel [disabled]=\"true\">\n        <mat-expansion-panel-header>\n          <mat-panel-title (click)='orderByFirstName()' style=\"color: black;\">\n            <button mat-raised-button color=\"primary\">FIRST NAME</button>\n          </mat-panel-title>\n          <mat-panel-title (click)='orderByLastName()' style=\"color: black;\">\n            <button mat-raised-button color=\"primary\">LAST NAME</button>\n          </mat-panel-title>\n        </mat-expansion-panel-header>\n      </mat-expansion-panel>\n\n      <mat-expansion-panel *ngFor=\"let people of peopleArray\"  hideToggle>\n        <mat-expansion-panel-header *ngIf=\"filterConditionFirstName(people) || filterConditionLastName(people)\">\n          <mat-panel-title>\n            {{people.firstName}}\n          </mat-panel-title>\n          <mat-panel-title>\n            {{people.lastName}}\n          </mat-panel-title>\n        </mat-expansion-panel-header>\n\n        <mat-panel-title>\n            mobile:\n        </mat-panel-title>\n        <mat-panel-description>\n          {{people.mobile}}\n        </mat-panel-description>\n\n        <mat-panel-title>\n          Email:\n        </mat-panel-title>\n        <mat-panel-description>\n          {{people.email}}\n        </mat-panel-description>\n        <mat-panel-title>\n          Address:\n        </mat-panel-title>\n        <mat-panel-description>\n          {{people.address}}\n        </mat-panel-description>\n        <mat-panel-title>\n          Note:\n        </mat-panel-title>\n        <mat-panel-description>\n          {{people.note}}\n        </mat-panel-description>\n\n        <mat-action-row>\n          <button mat-button color=\"warn\" (click)=\"onDelete(people.$key)\">DELETE</button>\n          <a class=\"nav-link\" href=\"#search\">\n          <button mat-button color=\"primary\" (click)=\"peopleService.populateForm(people)\" >EDIT</button>\n        </a>\n        </mat-action-row>\n\n\n      </mat-expansion-panel>\n\n    </mat-accordion>\n\n</div>\n\n\n\n");
             /***/ 
         }),
         /***/ "./node_modules/tslib/tslib.es6.js": 
@@ -401,17 +401,15 @@
             var AppComponent = /** @class */ (function () {
                 function AppComponent(spinner) {
                     this.spinner = spinner;
-                    this.title = 'Angular6FirebaseCrud';
+                    this.title = 'MyContacts';
                 }
                 AppComponent.prototype.getAnimationData = function (outlet) {
                     return outlet && outlet.activatedRouteData && outlet.activatedRouteData['animation'];
                 };
                 AppComponent.prototype.ngOnInit = function () {
                     var _this = this;
-                    /** spinner starts on init */
                     this.spinner.show();
                     setTimeout(function () {
-                        /** spinner ends after 5 seconds */
                         _this.spinner.hide();
                     }, 3000);
                 };
@@ -627,20 +625,6 @@
                     this.peopleService.selectedLastName = '';
                     this.peopleService.selectedMobile = '';
                 };
-                ContactsComponent.prototype.onSubmit = function () {
-                    var _this = this;
-                    this.submitted = true;
-                    if (this.peopleService.form.valid) {
-                        if (this.peopleService.form.get('$key').value == null)
-                            this.peopleService.insertPeople(this.peopleService.form.value);
-                        else
-                            this.peopleService.updatePeople(this.peopleService.form.value);
-                        this.showSuccessMessage = true;
-                        setTimeout(function () { return _this.showSuccessMessage = false; }, 3000);
-                        this.submitted = false;
-                        this.peopleService.form.reset();
-                    }
-                };
                 return ContactsComponent;
             }());
             ContactsComponent.ctorParameters = function () { return [
@@ -684,9 +668,6 @@
                 PeopleService.prototype.getPeople = function () {
                     this.peopleList = this.firebase.list('peoples');
                     return this.peopleList.snapshotChanges();
-                };
-                PeopleService.prototype.getPerson = function (person) {
-                    this.peopleList = this.firebase.list('peoples');
                 };
                 PeopleService.prototype.insertPeople = function (people) {
                     this.peopleList.push({
@@ -836,8 +817,11 @@
                         });
                     }
                 };
-                PeopleListComponent.prototype.filterCondition = function (people) {
+                PeopleListComponent.prototype.filterConditionFirstName = function (people) {
                     return people.firstName.toLowerCase().indexOf(this.searchText.toLowerCase()) !== -1;
+                };
+                PeopleListComponent.prototype.filterConditionLastName = function (people) {
+                    return people.lastName.toLowerCase().indexOf(this.searchText.toLowerCase()) !== -1;
                 };
                 PeopleListComponent.prototype.orderByFirstName = function () {
                     console.log('Ordino per nome');

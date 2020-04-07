@@ -32,10 +32,6 @@ export class PeopleService {
     return this.peopleList.snapshotChanges();
   }
 
-  getPerson(person){
-    this.peopleList = this.firebase.list('peoples');
-  }
-
   insertPeople(people) {
     this.peopleList.push({
       firstName: people.firstName,

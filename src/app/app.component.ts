@@ -16,14 +16,12 @@ export class AppComponent implements OnInit {
     return outlet && outlet.activatedRouteData && outlet.activatedRouteData['animation'];
   }
 
-  title = 'Angular6FirebaseCrud';
+  title = 'MyContacts';
 
   ngOnInit() {
-    /** spinner starts on init */
     this.spinner.show();
 
     setTimeout(() => {
-        /** spinner ends after 5 seconds */
         this.spinner.hide();
     }, 3000);
   }

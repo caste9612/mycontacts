@@ -26,18 +26,4 @@ export class ContactsComponent implements OnInit {
     this.peopleService.selectedMobile='';
   }
 
-  onSubmit() {
-    this.submitted = true;
-    if (this.peopleService.form.valid) {
-      if (this.peopleService.form.get('$key').value == null)
-        this.peopleService.insertPeople(this.peopleService.form.value);
-        else
-          this.peopleService.updatePeople(this.peopleService.form.value);
-        this.showSuccessMessage = true;
-        setTimeout(() => this.showSuccessMessage = false, 3000);
-      this.submitted = false;
-      this.peopleService.form.reset();
-    }
-  }
-
 }

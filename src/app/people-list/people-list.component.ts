@@ -36,8 +36,12 @@ export class PeopleListComponent implements OnInit {
     }
   }
 
-  filterCondition(people) {
+  filterConditionFirstName(people) {
     return people.firstName.toLowerCase().indexOf(this.searchText.toLowerCase()) !== -1;
+  }
+
+  filterConditionLastName(people) {
+    return people.lastName.toLowerCase().indexOf(this.searchText.toLowerCase()) !== -1;
   }
 
   orderByFirstName(){
