@@ -6,6 +6,7 @@ import {AngularFireList} from "@angular/fire/database";
 @Injectable({
   providedIn: 'root'
 })
+
 export class PeopleService {
 
   constructor(private firebase: AngularFireDatabase) { }
@@ -14,6 +15,7 @@ export class PeopleService {
   public selectedLastName;
   public selectedMobile;
   public $key;
+  public key;
 
   form = new FormGroup ({
     $key: new FormControl(null),
@@ -25,18 +27,14 @@ export class PeopleService {
     note: new FormControl('')
   });
 
-
   getPeople() {
     this.peopleList = this.firebase.list('peoples');
     return this.peopleList.snapshotChanges();
   }
 
-
-
   getPerson(person){
     this.peopleList = this.firebase.list('peoples');
   }
-
 
   insertPeople(people) {
     this.peopleList.push({
@@ -54,6 +52,7 @@ export class PeopleService {
     this.selectedFirstName = people.firstName;
     this.selectedLastName = people.lastName;
     this.selectedMobile = people.mobile;
+    this.key = people.$key;
     this.form.patchValue(people);
   }
 

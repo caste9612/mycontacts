@@ -4,9 +4,6 @@ import {MatSnackBar} from '@angular/material/snack-bar';
 
 
 
-
-
-
 @Component({
   selector: 'app-people-list',
   templateUrl: './people-list.component.html',
@@ -19,7 +16,6 @@ export class PeopleListComponent implements OnInit {
   searchText: string = '';
 
   ngOnInit() {
-
     this.peopleService.getPeople().subscribe(
       list => {
         this.peopleArray = list.map(item => {
@@ -31,7 +27,6 @@ export class PeopleListComponent implements OnInit {
       });
   }
 
-
   onDelete($key) {
     if (confirm('Are you sure to delete this record?')) {
       this.peopleService.deletePeople($key);
@@ -39,7 +34,6 @@ export class PeopleListComponent implements OnInit {
         duration: 5 * 1000,
       });
     }
-
   }
 
   filterCondition(people) {

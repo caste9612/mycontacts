@@ -7,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './contacts.component.html',
   styleUrls: ['./contacts.component.css']
 })
+
 export class ContactsComponent implements OnInit {
 
   constructor(public peopleService: PeopleService) { }
@@ -15,18 +16,20 @@ export class ContactsComponent implements OnInit {
   formControls = this.peopleService.form.controls;
   durationInSeconds = 5;
 
-
   ngOnInit() {
   }
 
   new(){
     this.peopleService.form.reset();
+    this.peopleService.selectedFirstName='';
+    this.peopleService.selectedLastName='';
+    this.peopleService.selectedMobile='';
   }
 
   onSubmit() {
     this.submitted = true;
     if (this.peopleService.form.valid) {
-      if (this.peopleService.form.get('$key').value == null) 
+      if (this.peopleService.form.get('$key').value == null)
         this.peopleService.insertPeople(this.peopleService.form.value);
         else
           this.peopleService.updatePeople(this.peopleService.form.value);
@@ -36,7 +39,5 @@ export class ContactsComponent implements OnInit {
       this.peopleService.form.reset();
     }
   }
-
-
 
 }

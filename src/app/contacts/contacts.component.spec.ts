@@ -1,10 +1,6 @@
 import { ContactsComponent } from './contacts.component';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-
-
-
-
 describe('PeopleComponent', () => {
   let component: ContactsComponent;
   let fixture: ComponentFixture<ContactsComponent>;

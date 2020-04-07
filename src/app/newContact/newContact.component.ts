@@ -6,6 +6,7 @@ import { PeopleService } from './../my-service.service';
   templateUrl: './newContact.component.html',
   styleUrls: ['./newContact.component.css']
 })
+
 export class NewContactComponent implements OnInit {
 
   constructor(public peopleService: PeopleService) { }
@@ -19,7 +20,7 @@ export class NewContactComponent implements OnInit {
   onSubmit() {
     this.submitted = true;
     if (this.peopleService.form.valid) {
-      if (this.peopleService.form.get('$key').value == null) 
+      if (this.peopleService.form.get('$key').value == null)
         this.peopleService.insertPeople(this.peopleService.form.value);
         else
           this.peopleService.updatePeople(this.peopleService.form.value);

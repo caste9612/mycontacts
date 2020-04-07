@@ -3,12 +3,12 @@ import { PeopleService } from './../my-service.service';
 import {MatSnackBar} from '@angular/material/snack-bar';
 
 
-
 @Component({
   selector: 'app-contactOverview',
   templateUrl: './contactOverview.component.html',
   styleUrls: ['./contactOverview.component.css']
 })
+
 export class ContactOverviewComponent implements OnInit {
 
   constructor(protected peopleService: PeopleService, private _snackBar: MatSnackBar) { }
@@ -20,17 +20,14 @@ export class ContactOverviewComponent implements OnInit {
   }
 
   delete() {
-    if (confirm('Are you sure to delete this contact?')) {
-      this.onDelete(this.peopleService.$key);
-    }
-  }
-
-  onDelete($key) {
-      this.peopleService.deletePeople($key);
+    if (confirm('Are you sure to delete this record?')) {
+      this.peopleService.deletePeople(this.peopleService.key);
       this._snackBar.open("Deleted successfully","",{
         duration: 5 * 1000,
       });
+    }
   }
+
 
   onSubmit() {
     this.submitted = true;

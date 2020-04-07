@@ -58,7 +58,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"row components-wrap\">\n\n        <div class=\"col-sm-12 col-md-12 col-lg-9 people-list-component-wrap\">\n            <app-people-list></app-people-list>\n            <a class=\"nav-link\" href=\"#search\">\n              <button mat-fab color=\"primary\" style=\"position:fixed; right: 0px;\" (click)=\"new()\" >\n                New\n              </button>\n            </a>\n          </div>\n</div>");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"row components-wrap\">\n  <div class=\"col-sm-12 col-md-12 col-lg-9 people-list-component-wrap\">\n    <app-people-list></app-people-list>\n    <a class=\"nav-link\" href=\"#search\">\n      <button mat-fab color=\"primary\" style=\"position:fixed; right: 0px;\" (click)=\"new()\">\n        New\n      </button>\n    </a>\n  </div>\n</div>\n");
 
 /***/ }),
 
@@ -84,7 +84,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div>\n\n    <form class=\"mb-5 form-inline\">\n        <mat-form-field style=\"width: 100%;\">\n          <input matInput name=\"searchInput\" #searchInput=\"ngModel\" [(ngModel)]=\"searchText\" style=\"width: 100%;\">\n          <mat-placeholder style=\"color:white\">Search</mat-placeholder>\n        </mat-form-field>\n    </form>\n\n    <mat-accordion class=\"example-headers-align\">\n      <mat-expansion-panel [disabled]=\"true\">\n        <mat-expansion-panel-header>\n          <mat-panel-title (click)='orderByFirstName()' style=\"color: black;\">\n            FIRST NAME\n          </mat-panel-title>\n          <mat-panel-title (click)='orderByLastName()' style=\"color: black;\">\n            LAST NAME\n          </mat-panel-title>\n        </mat-expansion-panel-header>\n      </mat-expansion-panel>\n\n      <mat-expansion-panel *ngFor=\"let people of peopleArray\"  hideToggle>\n        <mat-expansion-panel-header *ngIf=\"filterCondition(people)\">\n          <mat-panel-title>\n            {{people.firstName}}\n          </mat-panel-title>\n          <mat-panel-title>\n            {{people.lastName}}\n          </mat-panel-title>\n        </mat-expansion-panel-header>\n\n        <mat-panel-title>\n            mobile:\n        </mat-panel-title>\n        <mat-panel-description>\n          {{people.mobile}}\n        </mat-panel-description>\n\n        <mat-panel-title>\n          Email:\n        </mat-panel-title>\n        <mat-panel-description>\n          {{people.email}}\n        </mat-panel-description>\n        <mat-panel-title>\n          Address:\n        </mat-panel-title>\n        <mat-panel-description>\n          {{people.address}}\n        </mat-panel-description>\n        <mat-panel-title>\n          Note:\n        </mat-panel-title>\n        <mat-panel-description>\n          {{people.note}}\n        </mat-panel-description>\n\n        <mat-action-row>\n          <button mat-button color=\"warn\" (click)=\"onDelete(people.$key)\">DELETE</button>\n          <a class=\"nav-link\" href=\"#search\">\n          <button mat-button color=\"primary\" (click)=\"peopleService.populateForm(people)\" >EDIT</button>\n        </a>\n        </mat-action-row>\n\n\n      </mat-expansion-panel>\n\n    </mat-accordion>\n\n</div>\n\n\n\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<div>\n\n    <form class=\"mb-5 form-inline\">\n        <mat-form-field style=\"width: 100%;\">\n          <input matInput name=\"searchInput\" #searchInput=\"ngModel\" [(ngModel)]=\"searchText\" style=\"width: 100%;\">\n          <mat-placeholder style=\"color:white\">Search</mat-placeholder>\n        </mat-form-field>\n    </form>\n\n    <mat-accordion class=\"example-headers-align\">\n      <mat-expansion-panel [disabled]=\"true\">\n        <mat-expansion-panel-header>\n          <mat-panel-title (click)='orderByFirstName()' style=\"color: black;\">\n            <button mat-raised-button color=\"primary\">FIRST NAME</button>\n          </mat-panel-title>\n          <mat-panel-title (click)='orderByLastName()' style=\"color: black;\">\n            <button mat-raised-button color=\"primary\">LAST NAME</button>\n          </mat-panel-title>\n        </mat-expansion-panel-header>\n      </mat-expansion-panel>\n\n      <mat-expansion-panel *ngFor=\"let people of peopleArray\"  hideToggle>\n        <mat-expansion-panel-header *ngIf=\"filterCondition(people)\">\n          <mat-panel-title>\n            {{people.firstName}}\n          </mat-panel-title>\n          <mat-panel-title>\n            {{people.lastName}}\n          </mat-panel-title>\n        </mat-expansion-panel-header>\n\n        <mat-panel-title>\n            mobile:\n        </mat-panel-title>\n        <mat-panel-description>\n          {{people.mobile}}\n        </mat-panel-description>\n\n        <mat-panel-title>\n          Email:\n        </mat-panel-title>\n        <mat-panel-description>\n          {{people.email}}\n        </mat-panel-description>\n        <mat-panel-title>\n          Address:\n        </mat-panel-title>\n        <mat-panel-description>\n          {{people.address}}\n        </mat-panel-description>\n        <mat-panel-title>\n          Note:\n        </mat-panel-title>\n        <mat-panel-description>\n          {{people.note}}\n        </mat-panel-description>\n\n        <mat-action-row>\n          <button mat-button color=\"warn\" (click)=\"onDelete(people.$key)\">DELETE</button>\n          <a class=\"nav-link\" href=\"#search\">\n          <button mat-button color=\"primary\" (click)=\"peopleService.populateForm(people)\" >EDIT</button>\n        </a>\n        </mat-action-row>\n\n\n      </mat-expansion-panel>\n\n    </mat-accordion>\n\n</div>\n\n\n\n");
 
 /***/ }),
 
@@ -527,15 +527,12 @@ let ContactOverviewComponent = class ContactOverviewComponent {
     ngOnInit() {
     }
     delete() {
-        if (confirm('Are you sure to delete this contact?')) {
-            this.onDelete(this.peopleService.$key);
+        if (confirm('Are you sure to delete this record?')) {
+            this.peopleService.deletePeople(this.peopleService.key);
+            this._snackBar.open("Deleted successfully", "", {
+                duration: 5 * 1000,
+            });
         }
-    }
-    onDelete($key) {
-        this.peopleService.deletePeople($key);
-        this._snackBar.open("Deleted successfully", "", {
-            duration: 5 * 1000,
-        });
     }
     onSubmit() {
         this.submitted = true;
@@ -611,6 +608,9 @@ let ContactsComponent = class ContactsComponent {
     }
     new() {
         this.peopleService.form.reset();
+        this.peopleService.selectedFirstName = '';
+        this.peopleService.selectedLastName = '';
+        this.peopleService.selectedMobile = '';
     }
     onSubmit() {
         this.submitted = true;
@@ -694,6 +694,7 @@ let PeopleService = class PeopleService {
         this.selectedFirstName = people.firstName;
         this.selectedLastName = people.lastName;
         this.selectedMobile = people.mobile;
+        this.key = people.$key;
         this.form.patchValue(people);
     }
     updatePeople(people) {
