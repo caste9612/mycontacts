@@ -62,19 +62,6 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/newContact/newContact.component.html":
-/*!********************************************************************************************!*\
-  !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/newContact/newContact.component.html ***!
-  \********************************************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"row components-wrap\">\n\n<div class=\"col-sm-12 col-md-12 col-lg-2 people-component-wrap\">\n  <form [formGroup]=\"this.peopleService.form\" (ngSubmit)=\"onSubmit()\">\n    \n    <input type=\"hidden\" formControlName=\"$key\">\n\n      <div class=\"form-group\">\n        <mat-form-field>\n          <input style=\"color:white;\" matInput formControlName=\"fullName\" class=\"form-control\" [ngClass]=\"{'is-invalid':submitted && formControls.fullName.errors}\">\n          <mat-placeholder style=\"color:white\">Full Name</mat-placeholder>\n          <div class=\"invalid-feedback\" *ngIf=\"submitted && formControls.fullName.errors\">This field is required</div>\n        </mat-form-field>\n      </div>\n\n      <div class=\"form-group\">\n        <mat-form-field> \n          <input style=\"color:white;\" matInput formControlName=\"email\" class=\"form-control\" [ngClass]=\"{'is-invalid':submitted && formControls.email.errors}\">\n          <mat-placeholder style=\"color:white\">Email</mat-placeholder>\n          <div class=\"invalid-feedback\" *ngIf=\"submitted && formControls.email.errors\">Invalid Email Address</div>\n        </mat-form-field>\n      </div>\n\n      <div class=\"form-group\">\n          <mat-form-field> \n            <input style=\"color:white;\" matInput formControlName=\"address\" class=\"form-control\">\n            <mat-placeholder style=\"color:white\">Address</mat-placeholder>\n          </mat-form-field>\n        </div>\n\n      <div class=\"form-group\">\n        <mat-form-field> \n          <input style=\"color:white;\" matInput formControlName=\"mobile\" class=\"form-control\" [ngClass]=\"{'is-invalid':submitted && formControls.mobile.errors}\">\n          <mat-placeholder style=\"color:white\">Mobile</mat-placeholder>\n          <div class=\"invalid-feedback\" *ngIf=\"submitted && formControls.mobile.errors\">\n            <label *ngIf=\"formControls.mobile.errors.required\">This field is required.</label>\n            <label *ngIf=\"formControls.mobile.errors.minlength\">At least 8 numbers.</label>\n          </div>\n        </mat-form-field>\n          \n        \n      </div>\n\n      <div class=\"form-group\">\n        <mat-form-field> \n          <input style=\"color:white;\" matInput formControlName=\"location\" class=\"form-control\">\n          <mat-placeholder style=\"color:white\">Location</mat-placeholder>\n        </mat-form-field>\n      </div>\n\n\n    <div class=\"form-group\">\n      <input type=\"submit\" class=\"btn btn-primary\" value=\"Submit\">\n    </div>\n  </form>\n  <div class=\"alert alert-info\" *ngIf=\"showSuccessMessage\">\n      Submitted successfully.\n  </div>\n</div>\n\n</div>");
-
-/***/ }),
-
 /***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/people-list/people-list.component.html":
 /*!**********************************************************************************************!*\
   !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/people-list/people-list.component.html ***!
@@ -84,7 +71,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div>\n\n    <form class=\"mb-5 form-inline\">\n        <mat-form-field style=\"width: 100%;\">\n          <input matInput name=\"searchInput\" #searchInput=\"ngModel\" [(ngModel)]=\"searchText\" style=\"width: 100%;\">\n          <mat-placeholder style=\"color:white\">Search</mat-placeholder>\n        </mat-form-field>\n    </form>\n\n    <mat-accordion class=\"example-headers-align\">\n      <mat-expansion-panel [disabled]=\"true\">\n        <mat-expansion-panel-header>\n          <mat-panel-title (click)='orderByFirstName()' style=\"color: black;\">\n            <button mat-raised-button color=\"primary\">FIRST NAME</button>\n          </mat-panel-title>\n          <mat-panel-title (click)='orderByLastName()' style=\"color: black;\">\n            <button mat-raised-button color=\"primary\">LAST NAME</button>\n          </mat-panel-title>\n        </mat-expansion-panel-header>\n      </mat-expansion-panel>\n\n      <mat-expansion-panel *ngFor=\"let people of peopleArray\"  hideToggle>\n        <mat-expansion-panel-header *ngIf=\"filterConditionFirstName(people) || filterConditionLastName(people)\">\n          <mat-panel-title>\n            {{people.firstName}}\n          </mat-panel-title>\n          <mat-panel-title>\n            {{people.lastName}}\n          </mat-panel-title>\n        </mat-expansion-panel-header>\n\n        <mat-panel-title>\n            mobile:\n        </mat-panel-title>\n        <mat-panel-description>\n          {{people.mobile}}\n        </mat-panel-description>\n\n        <mat-panel-title>\n          Email:\n        </mat-panel-title>\n        <mat-panel-description>\n          {{people.email}}\n        </mat-panel-description>\n        <mat-panel-title>\n          Address:\n        </mat-panel-title>\n        <mat-panel-description>\n          {{people.address}}\n        </mat-panel-description>\n        <mat-panel-title>\n          Note:\n        </mat-panel-title>\n        <mat-panel-description>\n          {{people.note}}\n        </mat-panel-description>\n\n        <mat-action-row>\n          <button mat-button color=\"warn\" (click)=\"onDelete(people.$key)\">DELETE</button>\n          <a class=\"nav-link\" href=\"#search\">\n          <button mat-button color=\"primary\" (click)=\"peopleService.populateForm(people)\" >EDIT</button>\n        </a>\n        </mat-action-row>\n\n\n      </mat-expansion-panel>\n\n    </mat-accordion>\n\n</div>\n\n\n\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<div>\n\n    <form class=\"mb-5 form-inline\">\n        <mat-form-field style=\"width: 100%;\">\n          <input matInput name=\"searchInput\" #searchInput=\"ngModel\" [(ngModel)]=\"searchText\" style=\"width: 100%;\">\n          <mat-placeholder style=\"color:white\">Search</mat-placeholder>\n        </mat-form-field>\n    </form>\n\n    <mat-accordion class=\"example-headers-align\">\n      <mat-expansion-panel [disabled]=\"true\">\n        <mat-expansion-panel-header>\n          <mat-panel-title (click)='orderByFirstName()' style=\"color: black;\">\n            <button mat-raised-button color=\"primary\">FIRST NAME</button>\n          </mat-panel-title>\n          <mat-panel-title (click)='orderByLastName()' style=\"color: black;\">\n            <button mat-raised-button color=\"primary\">LAST NAME</button>\n          </mat-panel-title>\n        </mat-expansion-panel-header>\n      </mat-expansion-panel>\n\n      <mat-expansion-panel *ngFor=\"let people of peopleArray\"  hideToggle>\n        <mat-expansion-panel-header *ngIf=\"filterConditionFirstName(people) || filterConditionLastName(people) || filterConditionNumber(people)\">\n          <mat-panel-title>\n            {{people.firstName}}\n          </mat-panel-title>\n          <mat-panel-title>\n            {{people.lastName}}\n          </mat-panel-title>\n        </mat-expansion-panel-header>\n\n        <mat-panel-title>\n            mobile:\n        </mat-panel-title>\n        <mat-panel-description>\n          {{people.mobile}}\n        </mat-panel-description>\n\n        <mat-panel-title>\n          Email:\n        </mat-panel-title>\n        <mat-panel-description>\n          {{people.email}}\n        </mat-panel-description>\n        <mat-panel-title>\n          Address:\n        </mat-panel-title>\n        <mat-panel-description>\n          {{people.address}}\n        </mat-panel-description>\n        <mat-panel-title>\n          Note:\n        </mat-panel-title>\n        <mat-panel-description>\n          {{people.note}}\n        </mat-panel-description>\n\n        <mat-action-row>\n          <button mat-button color=\"warn\" (click)=\"onDelete(people.$key)\">DELETE</button>\n          <a class=\"nav-link\" href=\"#search\">\n          <button mat-button color=\"primary\" (click)=\"peopleService.populateForm(people)\" >EDIT</button>\n        </a>\n        </mat-action-row>\n\n\n      </mat-expansion-panel>\n\n    </mat-accordion>\n\n</div>\n\n\n\n");
 
 /***/ }),
 
@@ -394,23 +381,25 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm2015/router.js");
 /* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm2015/forms.js");
-/* harmony import */ var ngx_spinner__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ngx-spinner */ "./node_modules/ngx-spinner/fesm2015/ngx-spinner.js");
-/* harmony import */ var _app_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./app.component */ "./src/app/app.component.ts");
-/* harmony import */ var _contacts_contacts_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./contacts/contacts.component */ "./src/app/contacts/contacts.component.ts");
-/* harmony import */ var _my_service_service__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./my-service.service */ "./src/app/my-service.service.ts");
-/* harmony import */ var _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! @angular/platform-browser/animations */ "./node_modules/@angular/platform-browser/fesm2015/animations.js");
-/* harmony import */ var _angular_cdk_layout__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! @angular/cdk/layout */ "./node_modules/@angular/cdk/esm2015/layout.js");
+/* harmony import */ var _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @angular/platform-browser/animations */ "./node_modules/@angular/platform-browser/fesm2015/animations.js");
+/* harmony import */ var _angular_cdk_layout__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @angular/cdk/layout */ "./node_modules/@angular/cdk/esm2015/layout.js");
+/* harmony import */ var ngx_spinner__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ngx-spinner */ "./node_modules/ngx-spinner/fesm2015/ngx-spinner.js");
+/* harmony import */ var _app_component__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./app.component */ "./src/app/app.component.ts");
+/* harmony import */ var _contacts_contacts_component__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./contacts/contacts.component */ "./src/app/contacts/contacts.component.ts");
+/* harmony import */ var _contactOverview_contactOverview_component__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./contactOverview/contactOverview.component */ "./src/app/contactOverview/contactOverview.component.ts");
 /* harmony import */ var _people_list_people_list_component__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./people-list/people-list.component */ "./src/app/people-list/people-list.component.ts");
-/* harmony import */ var _angular_material__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! @angular/material */ "./node_modules/@angular/material/esm2015/material.js");
-/* harmony import */ var _contactOverview_contactOverview_component__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./contactOverview/contactOverview.component */ "./src/app/contactOverview/contactOverview.component.ts");
-/* harmony import */ var _newContact_newContact_component__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./newContact/newContact.component */ "./src/app/newContact/newContact.component.ts");
-/* harmony import */ var _angular_material_expansion__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! @angular/material/expansion */ "./node_modules/@angular/material/esm2015/expansion.js");
-/* harmony import */ var _angular_material_snack_bar__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! @angular/material/snack-bar */ "./node_modules/@angular/material/esm2015/snack-bar.js");
+/* harmony import */ var _my_service_service__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./my-service.service */ "./src/app/my-service.service.ts");
+/* harmony import */ var _angular_material__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! @angular/material */ "./node_modules/@angular/material/esm2015/material.js");
+/* harmony import */ var _angular_material_expansion__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! @angular/material/expansion */ "./node_modules/@angular/material/esm2015/expansion.js");
+/* harmony import */ var _angular_material_snack_bar__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! @angular/material/snack-bar */ "./node_modules/@angular/material/esm2015/snack-bar.js");
 
+/* Firebase Setup */
 
 
 
 /*Angular */
+
+
 
 
 
@@ -420,35 +409,30 @@ __webpack_require__.r(__webpack_exports__);
 /*Components */
 
 
+
+
 /*Service */
 
-
-
-
 /* Material Design */
-
-
 
 
 
 const Routes = [
     { path: '', redirectTo: 'home', pathMatch: 'full' },
     { path: 'find', redirectTo: 'search' },
-    { path: 'home', component: _contacts_contacts_component__WEBPACK_IMPORTED_MODULE_10__["ContactsComponent"] },
-    { path: 'search', component: _contactOverview_contactOverview_component__WEBPACK_IMPORTED_MODULE_16__["ContactOverviewComponent"] },
-    { path: 'new', component: _newContact_newContact_component__WEBPACK_IMPORTED_MODULE_17__["NewContactComponent"] },
-    { path: '**', component: _contacts_contacts_component__WEBPACK_IMPORTED_MODULE_10__["ContactsComponent"] }
+    { path: 'home', component: _contacts_contacts_component__WEBPACK_IMPORTED_MODULE_12__["ContactsComponent"] },
+    { path: 'search', component: _contactOverview_contactOverview_component__WEBPACK_IMPORTED_MODULE_13__["ContactOverviewComponent"] },
+    { path: '**', component: _contacts_contacts_component__WEBPACK_IMPORTED_MODULE_12__["ContactsComponent"] }
 ];
 let AppModule = class AppModule {
 };
 AppModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_5__["NgModule"])({
         declarations: [
-            _app_component__WEBPACK_IMPORTED_MODULE_9__["AppComponent"],
-            _contacts_contacts_component__WEBPACK_IMPORTED_MODULE_10__["ContactsComponent"],
+            _app_component__WEBPACK_IMPORTED_MODULE_11__["AppComponent"],
+            _contacts_contacts_component__WEBPACK_IMPORTED_MODULE_12__["ContactsComponent"],
             _people_list_people_list_component__WEBPACK_IMPORTED_MODULE_14__["PeopleListComponent"],
-            _contactOverview_contactOverview_component__WEBPACK_IMPORTED_MODULE_16__["ContactOverviewComponent"],
-            _newContact_newContact_component__WEBPACK_IMPORTED_MODULE_17__["NewContactComponent"],
+            _contactOverview_contactOverview_component__WEBPACK_IMPORTED_MODULE_13__["ContactOverviewComponent"],
         ],
         imports: [
             _angular_platform_browser__WEBPACK_IMPORTED_MODULE_4__["BrowserModule"],
@@ -457,26 +441,26 @@ AppModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
             _angular_forms__WEBPACK_IMPORTED_MODULE_7__["FormsModule"],
             _angular_fire__WEBPACK_IMPORTED_MODULE_2__["AngularFireModule"].initializeApp(_environments_environment__WEBPACK_IMPORTED_MODULE_1__["firebaseConfig"]),
             _angular_fire_database__WEBPACK_IMPORTED_MODULE_3__["AngularFireDatabaseModule"],
-            _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_12__["BrowserAnimationsModule"],
-            _angular_material__WEBPACK_IMPORTED_MODULE_15__["MatInputModule"],
-            _angular_material__WEBPACK_IMPORTED_MODULE_15__["MatButtonModule"],
-            _angular_material__WEBPACK_IMPORTED_MODULE_15__["MatSelectModule"],
-            _angular_material__WEBPACK_IMPORTED_MODULE_15__["MatDatepickerModule"],
-            _angular_material__WEBPACK_IMPORTED_MODULE_15__["MatCardModule"],
-            _angular_material_expansion__WEBPACK_IMPORTED_MODULE_18__["MatExpansionModule"],
-            _angular_material__WEBPACK_IMPORTED_MODULE_15__["MatIconModule"],
-            _angular_cdk_layout__WEBPACK_IMPORTED_MODULE_13__["LayoutModule"],
-            _angular_material__WEBPACK_IMPORTED_MODULE_15__["MatToolbarModule"],
-            _angular_material__WEBPACK_IMPORTED_MODULE_15__["MatSidenavModule"],
-            _angular_material__WEBPACK_IMPORTED_MODULE_15__["MatListModule"],
-            ngx_spinner__WEBPACK_IMPORTED_MODULE_8__["NgxSpinnerModule"],
-            _angular_material_snack_bar__WEBPACK_IMPORTED_MODULE_19__["MatSnackBarModule"]
+            _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_8__["BrowserAnimationsModule"],
+            _angular_material__WEBPACK_IMPORTED_MODULE_16__["MatInputModule"],
+            _angular_material__WEBPACK_IMPORTED_MODULE_16__["MatButtonModule"],
+            _angular_material__WEBPACK_IMPORTED_MODULE_16__["MatSelectModule"],
+            _angular_material__WEBPACK_IMPORTED_MODULE_16__["MatDatepickerModule"],
+            _angular_material__WEBPACK_IMPORTED_MODULE_16__["MatCardModule"],
+            _angular_material_expansion__WEBPACK_IMPORTED_MODULE_17__["MatExpansionModule"],
+            _angular_material__WEBPACK_IMPORTED_MODULE_16__["MatIconModule"],
+            _angular_cdk_layout__WEBPACK_IMPORTED_MODULE_9__["LayoutModule"],
+            _angular_material__WEBPACK_IMPORTED_MODULE_16__["MatToolbarModule"],
+            _angular_material__WEBPACK_IMPORTED_MODULE_16__["MatSidenavModule"],
+            _angular_material__WEBPACK_IMPORTED_MODULE_16__["MatListModule"],
+            ngx_spinner__WEBPACK_IMPORTED_MODULE_10__["NgxSpinnerModule"],
+            _angular_material_snack_bar__WEBPACK_IMPORTED_MODULE_18__["MatSnackBarModule"]
         ],
         providers: [
-            _my_service_service__WEBPACK_IMPORTED_MODULE_11__["PeopleService"],
+            _my_service_service__WEBPACK_IMPORTED_MODULE_15__["PeopleService"],
         ],
         bootstrap: [
-            _app_component__WEBPACK_IMPORTED_MODULE_9__["AppComponent"]
+            _app_component__WEBPACK_IMPORTED_MODULE_11__["AppComponent"]
         ]
     })
 ], AppModule);
@@ -706,71 +690,6 @@ PeopleService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
 
 /***/ }),
 
-/***/ "./src/app/newContact/newContact.component.css":
-/*!*****************************************************!*\
-  !*** ./src/app/newContact/newContact.component.css ***!
-  \*****************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = (".people-component-wrap {\n    background: rgba(0, 0, 0, 0.6) none repeat scroll 0 0; \n    margin: 0px 10px;\n    min-width: 20%;\n    padding: 30px;\n} \n\n.people-list-component-wrap {\n    background: rgba(0, 0, 0, 0.6) none repeat scroll 0 0; \n    margin: 0px 10px;\n    padding: 30px;\n} \n\n.form-control {\n    padding: 0px !important;\n    border: 0px !important;\n    margin: 0px !important;\n    background: none !important;\n    border-radius: 0px!important;\n    top: 0px!important;\n    bottom: 0px!important;\n    outline: none!important;\n    box-shadow: none!important;\n    height: 17px!important;\n    transition: none!important;\n    \n\n} \n\n@media (max-width: 768px) {\n    .home-title {\n        font-size: 25px!important;\n    }\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvbmV3Q29udGFjdC9uZXdDb250YWN0LmNvbXBvbmVudC5jc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7SUFDSSxxREFBcUQ7SUFDckQsZ0JBQWdCO0lBQ2hCLGNBQWM7SUFDZCxhQUFhO0FBQ2pCOztBQUVBO0lBQ0kscURBQXFEO0lBQ3JELGdCQUFnQjtJQUNoQixhQUFhO0FBQ2pCOztBQUVBO0lBQ0ksdUJBQXVCO0lBQ3ZCLHNCQUFzQjtJQUN0QixzQkFBc0I7SUFDdEIsMkJBQTJCO0lBQzNCLDRCQUE0QjtJQUM1QixrQkFBa0I7SUFDbEIscUJBQXFCO0lBQ3JCLHVCQUF1QjtJQUN2QiwwQkFBMEI7SUFDMUIsc0JBQXNCO0lBQ3RCLDBCQUEwQjs7O0FBRzlCOztBQUdBO0lBQ0k7UUFDSSx5QkFBeUI7SUFDN0I7QUFDSiIsImZpbGUiOiJzcmMvYXBwL25ld0NvbnRhY3QvbmV3Q29udGFjdC5jb21wb25lbnQuY3NzIiwic291cmNlc0NvbnRlbnQiOlsiLnBlb3BsZS1jb21wb25lbnQtd3JhcCB7XG4gICAgYmFja2dyb3VuZDogcmdiYSgwLCAwLCAwLCAwLjYpIG5vbmUgcmVwZWF0IHNjcm9sbCAwIDA7IFxuICAgIG1hcmdpbjogMHB4IDEwcHg7XG4gICAgbWluLXdpZHRoOiAyMCU7XG4gICAgcGFkZGluZzogMzBweDtcbn0gXG5cbi5wZW9wbGUtbGlzdC1jb21wb25lbnQtd3JhcCB7XG4gICAgYmFja2dyb3VuZDogcmdiYSgwLCAwLCAwLCAwLjYpIG5vbmUgcmVwZWF0IHNjcm9sbCAwIDA7IFxuICAgIG1hcmdpbjogMHB4IDEwcHg7XG4gICAgcGFkZGluZzogMzBweDtcbn0gXG5cbi5mb3JtLWNvbnRyb2wge1xuICAgIHBhZGRpbmc6IDBweCAhaW1wb3J0YW50O1xuICAgIGJvcmRlcjogMHB4ICFpbXBvcnRhbnQ7XG4gICAgbWFyZ2luOiAwcHggIWltcG9ydGFudDtcbiAgICBiYWNrZ3JvdW5kOiBub25lICFpbXBvcnRhbnQ7XG4gICAgYm9yZGVyLXJhZGl1czogMHB4IWltcG9ydGFudDtcbiAgICB0b3A6IDBweCFpbXBvcnRhbnQ7XG4gICAgYm90dG9tOiAwcHghaW1wb3J0YW50O1xuICAgIG91dGxpbmU6IG5vbmUhaW1wb3J0YW50O1xuICAgIGJveC1zaGFkb3c6IG5vbmUhaW1wb3J0YW50O1xuICAgIGhlaWdodDogMTdweCFpbXBvcnRhbnQ7XG4gICAgdHJhbnNpdGlvbjogbm9uZSFpbXBvcnRhbnQ7XG4gICAgXG5cbn0gXG5cblxuQG1lZGlhIChtYXgtd2lkdGg6IDc2OHB4KSB7XG4gICAgLmhvbWUtdGl0bGUge1xuICAgICAgICBmb250LXNpemU6IDI1cHghaW1wb3J0YW50O1xuICAgIH1cbn0iXX0= */");
-
-/***/ }),
-
-/***/ "./src/app/newContact/newContact.component.ts":
-/*!****************************************************!*\
-  !*** ./src/app/newContact/newContact.component.ts ***!
-  \****************************************************/
-/*! exports provided: NewContactComponent */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "NewContactComponent", function() { return NewContactComponent; });
-/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
-/* harmony import */ var _my_service_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./../my-service.service */ "./src/app/my-service.service.ts");
-
-
-
-let NewContactComponent = class NewContactComponent {
-    constructor(peopleService) {
-        this.peopleService = peopleService;
-        this.formControls = this.peopleService.form.controls;
-    }
-    ngOnInit() {
-    }
-    onSubmit() {
-        this.submitted = true;
-        if (this.peopleService.form.valid) {
-            if (this.peopleService.form.get('$key').value == null)
-                this.peopleService.insertPeople(this.peopleService.form.value);
-            else
-                this.peopleService.updatePeople(this.peopleService.form.value);
-            this.showSuccessMessage = true;
-            setTimeout(() => this.showSuccessMessage = false, 3000);
-            this.submitted = false;
-            this.peopleService.form.reset();
-        }
-    }
-};
-NewContactComponent.ctorParameters = () => [
-    { type: _my_service_service__WEBPACK_IMPORTED_MODULE_2__["PeopleService"] }
-];
-NewContactComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
-        selector: 'app-newContact',
-        template: tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! raw-loader!./newContact.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/newContact/newContact.component.html")).default,
-        styles: [tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! ./newContact.component.css */ "./src/app/newContact/newContact.component.css")).default]
-    })
-], NewContactComponent);
-
-
-
-/***/ }),
-
 /***/ "./src/app/people-list/people-list.component.css":
 /*!*******************************************************!*\
   !*** ./src/app/people-list/people-list.component.css ***!
@@ -826,6 +745,9 @@ let PeopleListComponent = class PeopleListComponent {
     }
     filterConditionFirstName(people) {
         return people.firstName.toLowerCase().indexOf(this.searchText.toLowerCase()) !== -1;
+    }
+    filterConditionNumber(people) {
+        return people.mobile.indexOf(this.searchText) !== -1;
     }
     filterConditionLastName(people) {
         return people.lastName.toLowerCase().indexOf(this.searchText.toLowerCase()) !== -1;

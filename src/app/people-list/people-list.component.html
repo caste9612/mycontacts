@@ -20,7 +20,7 @@
       </mat-expansion-panel>
 
       <mat-expansion-panel *ngFor="let people of peopleArray"  hideToggle>
-        <mat-expansion-panel-header *ngIf="filterConditionFirstName(people) || filterConditionLastName(people)">
+        <mat-expansion-panel-header *ngIf="filterConditionFirstName(people) || filterConditionLastName(people) || filterConditionNumber(people)">
           <mat-panel-title>
             {{people.firstName}}
           </mat-panel-title>

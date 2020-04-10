@@ -40,6 +40,10 @@ export class PeopleListComponent implements OnInit {
     return people.firstName.toLowerCase().indexOf(this.searchText.toLowerCase()) !== -1;
   }
 
+  filterConditionNumber(people) {
+    return people.mobile.indexOf(this.searchText) !== -1;
+  }
+
   filterConditionLastName(people) {
     return people.lastName.toLowerCase().indexOf(this.searchText.toLowerCase()) !== -1;
   }
